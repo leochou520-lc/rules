@@ -1,0 +1,174 @@
+name: "番茄小说去广告"
+description: "基于 APK v7.3.5.32 逆向 + 实机验证 · 2026-11"
+author: "community"
+icon: "book.fill"
+
+rules:
+  # ═══ 白名单 ═══
+  - domain_suffix:
+      match: reading.snssdk.com
+      policy: DIRECT
+  - domain_suffix:
+      match: fqnovel.com
+      policy: DIRECT
+  - domain_suffix:
+      match: fqnovelpic.com
+      policy: DIRECT
+  - domain_suffix:
+      match: fqnovelstatic.com
+      policy: DIRECT
+  - domain_suffix:
+      match: byteimg.com
+      policy: DIRECT
+  - domain_suffix:
+      match: bytegecko.com
+      policy: DIRECT
+  - domain_suffix:
+      match: i.snssdk.com
+      policy: DIRECT
+  - domain_suffix:
+      match: api.snssdk.com
+      policy: DIRECT
+  - domain_suffix:
+      match: security.snssdk.com
+      policy: DIRECT
+  - domain_suffix:
+      match: tp-pay.snssdk.com
+      policy: DIRECT
+  - domain_suffix:
+      match: zlink.fqnovel.com
+      policy: DIRECT
+  - domain_suffix:
+      match: polaris.zijieapi.com
+      policy: DIRECT
+  - domain_suffix:
+      match: id6.me
+      policy: DIRECT
+  - domain_suffix:
+      match: bytednsdoc.com
+      policy: DIRECT
+
+  # ═══ 广告素材 ═══
+  - domain:
+      match: p6-ad-sign.byteimg.com
+      policy: REJECT
+  - domain:
+      match: p9-ad-sign.byteimg.com
+      policy: REJECT
+  - domain:
+      match: p3-ad-sign.byteimg.com
+      policy: REJECT
+  - domain_suffix:
+      match: pstatp.com
+      policy: REJECT
+
+  # ═══ 穿山甲 SDK ═══
+  - domain_keyword:
+      match: pangolin
+      policy: REJECT
+  - domain_suffix:
+      match: pglstatp-toutiao.com
+      policy: REJECT
+  - domain_suffix:
+      match: pglstatp-toutiao-b.com
+      policy: REJECT
+  - domain_suffix:
+      match: pangle.cn
+      policy: REJECT
+
+  # ═══ 字节广告 API ═══
+  - domain_regex:
+      match: "^ads[0-9]*-normal.*\\.zijieapi\\.com$"
+      policy: REJECT
+  - domain:
+      match: ad.zijieapi.com
+      policy: REJECT
+  - domain:
+      match: ad1.zijieapi.com
+      policy: REJECT
+  - domain:
+      match: ad2.zijieapi.com
+      policy: REJECT
+
+  # ═══ 曝光归因 ═══
+  - domain_suffix:
+      match: ad.toutiao.com
+      policy: REJECT
+  - domain_suffix:
+      match: effect.snssdk.com
+      policy: REJECT
+  - domain_suffix:
+      match: ichannel.snssdk.com
+      policy: REJECT
+  - domain_suffix:
+      match: zlink.toutiao.com
+      policy: REJECT
+  - domain_suffix:
+      match: zlink.ugsdk.cn
+      policy: REJECT
+  - domain_suffix:
+      match: media-show.wanzi.com
+      policy: REJECT
+  - domain_suffix:
+      match: oceanengine.com
+      policy: REJECT
+
+  # ═══ 番茄专属 ═══
+  - domain_suffix:
+      match: novelapp.ixigua.com
+      policy: REJECT
+  - domain:
+      match: v6-novelapp.ixigua.com
+      policy: REJECT
+  - domain:
+      match: activity-ag.awemeughun.com
+      policy: REJECT
+  - domain_suffix:
+      match: byteorge.com
+      policy: REJECT
+  - domain_suffix:
+      match: bytegoofy.com
+      policy: REJECT
+  - domain_suffix:
+      match: applog.fqnovel.com
+      policy: REJECT
+  - domain_suffix:
+      match: log3-applog.fqnovel.com
+      policy: REJECT
+  - domain_suffix:
+      match: log5-applog.fqnovel.com
+      policy: REJECT
+
+  # ═══ 埋点（可选） ═══
+  - domain_suffix:
+      match: mon.toutiaocloud.net
+      policy: REJECT
+  - domain_suffix:
+      match: mon.toutiaocloud.com
+      policy: REJECT
+  - domain_suffix:
+      match: is.snssdk.com
+      policy: REJECT
+  - domain_suffix:
+      match: is-lq.snssdk.com
+      policy: REJECT
+  - domain_suffix:
+      match: mcs.snssdk.com
+      policy: REJECT
+  - domain_suffix:
+      match: tnc3-alisc1.snssdk.com
+      policy: REJECT
+  - domain_suffix:
+      match: tnc3-aliec2.snssdk.com
+      policy: REJECT
+
+  # ═══ 第三方广告 ═══
+  - domain:
+      match: dig.bdurl.net
+      policy: REJECT
+  - domain_suffix:
+      match: awemeughun.com
+      policy: REJECT
+  - domain:
+      match: api.iegadp.qq.com
+      policy: REJECT   
