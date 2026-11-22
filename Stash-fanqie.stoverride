@@ -1,5 +1,8 @@
-rules
-  # 白名单父域下的广告子域（必须在父域 DIRECT 之前）
+name: 番茄小说去广告
+desc: 基于 APK v7.3.5.32 逆向 · 2026-11
+
+rules:
+  # 白名单父域下的广告子域（必须在父域之前）
   - DOMAIN,p6-ad-sign.byteimg.com,REJECT
   - DOMAIN,p9-ad-sign.byteimg.com,REJECT
   - DOMAIN,p3-ad-sign.byteimg.com,REJECT
@@ -7,7 +10,7 @@ rules
   - DOMAIN-SUFFIX,log3-applog.fqnovel.com,REJECT
   - DOMAIN-SUFFIX,log5-applog.fqnovel.com,REJECT
 
-  # 白名单
+  # 白名单（核心阅读/支付/登录）
   - DOMAIN-SUFFIX,reading.snssdk.com,DIRECT
   - DOMAIN-SUFFIX,fqnovel.com,DIRECT
   - DOMAIN-SUFFIX,fqnovelpic.com,DIRECT
@@ -23,7 +26,7 @@ rules
   - DOMAIN-SUFFIX,id6.me,DIRECT
   - DOMAIN-SUFFIX,bytednsdoc.com,DIRECT
 
-  # 广告素材
+  # 广告素材 CDN
   - DOMAIN-SUFFIX,pstatp.com,REJECT
 
   # 穿山甲 SDK
@@ -33,7 +36,6 @@ rules
   - DOMAIN-SUFFIX,pangle.cn,REJECT
 
   # 字节广告 API
-  - DOMAIN-REGEX,^ads[0-9]-normal..zijieapi.com$,REJECT
   - DOMAIN,ad.zijieapi.com,REJECT
   - DOMAIN,ad1.zijieapi.com,REJECT
   - DOMAIN,ad2.zijieapi.com,REJECT
@@ -54,7 +56,7 @@ rules
   - DOMAIN-SUFFIX,byteorge.com,REJECT
   - DOMAIN-SUFFIX,bytegoofy.com,REJECT
 
-  # 埋点（可选）
+  # 埋点（可选删除）
   - DOMAIN-SUFFIX,mon.toutiaocloud.net,REJECT
   - DOMAIN-SUFFIX,mon.toutiaocloud.com,REJECT
   - DOMAIN-SUFFIX,is.snssdk.com,REJECT
@@ -63,7 +65,7 @@ rules
   - DOMAIN-SUFFIX,tnc3-alisc1.snssdk.com,REJECT
   - DOMAIN-SUFFIX,tnc3-aliec2.snssdk.com,REJECT
 
-  # 第三方
+  # 第三方广告
   - DOMAIN,dig.bdurl.net,REJECT
   - DOMAIN-SUFFIX,awemeughun.com,REJECT
   - DOMAIN,api.iegadp.qq.com,REJECT   
