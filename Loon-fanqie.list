@@ -1,5 +1,8 @@
-# 番茄小说去广告 · v7.3.5.32 · 2026-11
+#!name = 番茄小说去广告
+#!desc = 基于 APK v7.3.5.32 逆向 · 2026-11
+#!author = community
 
+[Rule]
 # 白名单父域下的广告子域（必须在父域 DIRECT 之前）
 DOMAIN,p6-ad-sign.byteimg.com,REJECT
 DOMAIN,p9-ad-sign.byteimg.com,REJECT
