@@ -1,0 +1,146 @@
+[General]
+#!name=番茄小说去广告
+#!desc=基于 APK v7.3.5.32 逆向 + 实机验证 · 2026-11
+#!version=2026-11-22
+#!category=去广告
+
+[Rule]
+# ╔══════════════════════════════════════════════════╗
+# ║  第 0 层：白名单（绝不能拦，否则白屏/无法登录）  ║
+# ╚══════════════════════════════════════════════════╝
+
+# 正文接口（最高频，13 个 dex 引用）
+DOMAIN-SUFFIX,reading.snssdk.com,DIRECT
+# 书籍 API（分集/书架/搜索/播放地址）
+DOMAIN-SUFFIX,fqnovel.com,DIRECT
+# 封面图 CDN
+DOMAIN-SUFFIX,fqnovelpic.com,DIRECT
+# 静态资源
+DOMAIN-SUFFIX,fqnovelstatic.com,DIRECT
+# 图片 CDN（正文插图）
+DOMAIN-SUFFIX,byteimg.com,DIRECT
+# 资源包 CDN（字体/配置）
+DOMAIN-SUFFIX,bytegecko.com,DIRECT
+# 用户中心（账号/钱包/个人资料）
+DOMAIN-SUFFIX,i.snssdk.com,DIRECT
+# OAuth 授权
+DOMAIN-SUFFIX,api.snssdk.com,DIRECT
+# 设备安全校验
+DOMAIN-SUFFIX,security.snssdk.com,DIRECT
+# 支付
+DOMAIN-SUFFIX,tp-pay.snssdk.com,DIRECT
+# App 唤起
+DOMAIN-SUFFIX,zlink.fqnovel.com,DIRECT
+# 配置下发
+DOMAIN-SUFFIX,polaris.zijieapi.com,DIRECT
+# 登录
+DOMAIN-SUFFIX,id6.me,DIRECT
+# 静态文档
+DOMAIN-SUFFIX,bytednsdoc.com,DIRECT
+
+# ╔══════════════════════════════════════════════════╗
+# ║  第 1 层：广告素材 CDN（开屏/信息流素材）         ║
+# ╚══════════════════════════════════════════════════╝
+
+DOMAIN,p6-ad-sign.byteimg.com,REJECT
+DOMAIN,p9-ad-sign.byteimg.com,REJECT
+DOMAIN,p3-ad-sign.byteimg.com,REJECT
+DOMAIN-SUFFIX,pstatp.com,REJECT
+
+# ╔══════════════════════════════════════════════════╗
+# ║  第 2 层：穿山甲 / Pangle 广告 SDK              ║
+# ╚══════════════════════════════════════════════════╝
+
+DOMAIN-KEYWORD,pangolin,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao-b.com,REJECT
+DOMAIN-SUFFIX,pangle.cn,REJECT
+
+# ╔══════════════════════════════════════════════════╗
+# ║  第 3 层：字节广告 API（zijieapi 子域）          ║
+# ╚══════════════════════════════════════════════════╝
+
+# 信息流广告（ads 前缀），白名单已放行 polaris
+DOMAIN-REGEX,^ads[0-9]*-normal.*\.zijieapi\.com$,REJECT
+# 广告专用
+DOMAIN,ad.zijieapi.com,REJECT
+DOMAIN,ad1.zijieapi.com,REJECT
+DOMAIN,ad2.zijieapi.com,REJECT
+
+# ╔══════════════════════════════════════════════════╗
+# ║  第 4 层：广告曝光 / 归因 / 跳转                ║
+# ╚══════════════════════════════════════════════════╝
+
+DOMAIN-SUFFIX,ad.toutiao.com,REJECT
+DOMAIN-SUFFIX,effect.snssdk.com,REJECT
+DOMAIN-SUFFIX,ichannel.snssdk.com,REJECT
+DOMAIN-SUFFIX,zlink.toutiao.com,REJECT
+DOMAIN-SUFFIX,zlink.ugsdk.cn,REJECT
+DOMAIN-SUFFIX,media-show.wanzi.com,REJECT
+# 巨量引擎
+DOMAIN-SUFFIX,oceanengine.com,REJECT
+
+# ╔══════════════════════════════════════════════════╗
+# ║  第 5 层：番茄专属广告域（APK 逆向提取）         ║
+# ╚══════════════════════════════════════════════════╝
+
+# 番茄小说视频广告
+DOMAIN-SUFFIX,novelapp.ixigua.com,REJECT
+DOMAIN,v6-novelapp.ixigua.com,REJECT
+DOMAIN,*default.ixigua.com,REJECT
+# 番茄活动广告
+DOMAIN,activity-ag.awemeughun.com,REJECT
+# 字节广告辅助域
+DOMAIN-SUFFIX,byteorge.com,REJECT
+DOMAIN-SUFFIX,bytegoofy.com,REJECT
+# 番茄埋点
+DOMAIN-SUFFIX,applog.fqnovel.com,REJECT
+DOMAIN-SUFFIX,log3-applog.fqnovel.com,REJECT
+DOMAIN-SUFFIX,log5-applog.fqnovel.com,REJECT
+DOMAIN-REGEX,^mon[0-9]*-misc\.fqnovel\.com$,REJECT
+
+# ╔══════════════════════════════════════════════════╗
+# ║  第 6 层：埋点 / 监控（可选）                    ║
+# ╚══════════════════════════════════════════════════╝
+
+DOMAIN-SUFFIX,mon.toutiaocloud.net,REJECT
+DOMAIN-SUFFIX,mon.toutiaocloud.com,REJECT
+# AB 实验 + 广告位配置（拦了减少广告，但部分功能开关可能失效）
+# 如出现功能异常，注释此行
+DOMAIN-SUFFIX,is.snssdk.com,REJECT
+DOMAIN-SUFFIX,is-lq.snssdk.com,REJECT
+# 监控
+DOMAIN-SUFFIX,mcs.snssdk.com,REJECT
+DOMAIN-SUFFIX,tnc3-alisc1.snssdk.com,REJECT
+DOMAIN-SUFFIX,tnc3-aliec2.snssdk.com,REJECT
+
+# ╔══════════════════════════════════════════════════╗
+# ║  第 7 层：第三方广告 / 推送                      ║
+# ╚══════════════════════════════════════════════════╝
+
+DOMAIN,dig.bdurl.net,REJECT
+DOMAIN-SUFFIX,awemeughun.com,REJECT
+# 腾讯广告（番茄内嵌）
+DOMAIN,api.iegadp.qq.com,REJECT
+DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT
+
+# ╔══════════════════════════════════════════════════╗
+# ║  第 8 层：IP 直连广告服务器（兜底）              ║
+# ╚══════════════════════════════════════════════════╝
+
+IP-CIDR,49.71.37.101/32,REJECT,no-resolve
+IP-CIDR,117.71.105.23/32,REJECT,no-resolve
+IP-CIDR,218.94.207.205/32,REJECT,no-resolve
+IP-CIDR,117.92.229.188/32,REJECT,no-resolve
+IP-CIDR,101.36.166.16/32,REJECT,no-resolve
+IP-CIDR,180.96.2.114/32,REJECT,no-resolve
+
+[URL Rewrite]
+# ═══ 章末广告 / 穿山甲 API 路径拦截 ═══
+^https?:\/\/.+\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/(get_ads|stats|settings)\/.* reject
+^https?:\/\/.+\.pglstatp-toutiao\.com\/.+\/toutiao\.mp4 reject
+^https?:\/\/.+.(pglstatp-toutiao|pstatp)\.com\/(obj|img)\/(ad-app-package|ad)\/.* reject
+^https?:\/\/.+\.byteimg\.com\/ad-app-package\/.* reject
+^https?:\/\/.+\.byteimg\.com\/web\.business\.image\/.* reject
+# 番茄视频广告 SDK
+^https?:\/\/.+\.ixigua\.com\/.*novelapp.* reject   
