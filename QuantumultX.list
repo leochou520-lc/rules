@@ -1,66 +1,43 @@
-; 番茄小说去广告 · Quantumult X 版 · 2026-11-22
-
-; ═══ 第 0 层：白名单 ═══
-DOMAIN-SUFFIX,reading.snssdk.com,direct
-DOMAIN-SUFFIX,fqnovel.com,direct
+; 红果短剧去广告 · Quantumult X 版
+; 白名单
+DOMAIN-SUFFIX,qznovelvod.com,direct
+DOMAIN-SUFFIX,fqnovelvod.com,direct
+DOMAIN-SUFFIX,id6.me,direct
+DOMAIN-SUFFIX,qznovelpic.com,direct
 DOMAIN-SUFFIX,fqnovelpic.com,direct
 DOMAIN-SUFFIX,fqnovelstatic.com,direct
-DOMAIN-SUFFIX,byteimg.com,direct
-DOMAIN-SUFFIX,bytegecko.com,direct
-DOMAIN-SUFFIX,i.snssdk.com,direct
-DOMAIN-SUFFIX,api.snssdk.com,direct
-DOMAIN-SUFFIX,security.snssdk.com,direct
-DOMAIN-SUFFIX,tp-pay.snssdk.com,direct
-DOMAIN-SUFFIX,zlink.fqnovel.com,direct
-DOMAIN-SUFFIX,polaris.zijieapi.com,direct
-DOMAIN-SUFFIX,id6.me,direct
-DOMAIN-SUFFIX,bytednsdoc.com,direct
-
-; ═══ 第 1 层：广告素材 ═══
-DOMAIN,p6-ad-sign.byteimg.com,reject
-DOMAIN,p9-ad-sign.byteimg.com,reject
-DOMAIN,p3-ad-sign.byteimg.com,reject
-DOMAIN-SUFFIX,pstatp.com,reject
-
-; ═══ 第 2 层：穿山甲 SDK ═══
-DOMAIN-KEYWORD,pangolin,reject
-DOMAIN-SUFFIX,pglstatp-toutiao.com,reject
-DOMAIN-SUFFIX,pglstatp-toutiao-b.com,reject
-DOMAIN-SUFFIX,pangle.cn,reject
-
-; ═══ 第 3 层：字节广告 API ═══
-HOST-REGEX,^ads[0-9]*-normal.*\.zijieapi\.com$,reject
-DOMAIN,ad.zijieapi.com,reject
-DOMAIN,ad1.zijieapi.com,reject
-DOMAIN,ad2.zijieapi.com,reject
-
-; ═══ 第 4 层：曝光归因 ═══
+DOMAIN-SUFFIX,qznovelstatic.com,direct
+; 广告运行时
+DOMAIN-SUFFIX,bytegecko.com,reject
+; 曝光归因
+DOMAIN-SUFFIX,media-show.wanzi.com,reject
 DOMAIN-SUFFIX,ad.toutiao.com,reject
 DOMAIN-SUFFIX,effect.snssdk.com,reject
 DOMAIN-SUFFIX,ichannel.snssdk.com,reject
 DOMAIN-SUFFIX,zlink.toutiao.com,reject
 DOMAIN-SUFFIX,zlink.ugsdk.cn,reject
-DOMAIN-SUFFIX,media-show.wanzi.com,reject
-DOMAIN-SUFFIX,oceanengine.com,reject
-
-; ═══ 第 5 层：番茄专属 ═══
-DOMAIN-SUFFIX,novelapp.ixigua.com,reject
-DOMAIN,v6-novelapp.ixigua.com,reject
-DOMAIN,activity-ag.awemeughun.com,reject
-DOMAIN-SUFFIX,byteorge.com,reject
-DOMAIN-SUFFIX,bytegoofy.com,reject
+; 穿山甲
+DOMAIN-KEYWORD,pangolin,reject
+DOMAIN-SUFFIX,pglstatp-toutiao.com,reject
+DOMAIN-SUFFIX,pglstatp-toutiao-b.com,reject
+DOMAIN-SUFFIX,pangle.cn,reject
+; 字节广告 API
+HOST-REGEX,^ads[0-9]*-normal\..*\.zijieapi\.com$,reject
+HOST-REGEX,^polaris[0-9]*-.*\..*\.zijieapi\.com$,reject
+; 素材 CDN
+DOMAIN-KEYWORD,-ad-sign.byteimg.com,reject
+DOMAIN-SUFFIX,pstatp.com,reject
+; 埋点
+DOMAIN-SUFFIX,mon.toutiaocloud.net,reject
+DOMAIN-SUFFIX,mon.toutiaocloud.com,reject
+DOMAIN-SUFFIX,i.snssdk.com,reject
+DOMAIN-SUFFIX,i-lq.snssdk.com,reject
+DOMAIN-SUFFIX,is.snssdk.com,reject
+DOMAIN-SUFFIX,is-lq.snssdk.com,reject
 DOMAIN-SUFFIX,applog.fqnovel.com,reject
 DOMAIN-SUFFIX,log3-applog.fqnovel.com,reject
 DOMAIN-SUFFIX,log5-applog.fqnovel.com,reject
-
-; ═══ 第 6 层：埋点（可选） ═══
-DOMAIN-SUFFIX,mon.toutiaocloud.net,reject
-DOMAIN-SUFFIX,mon.toutiaocloud.com,reject
-DOMAIN-SUFFIX,is.snssdk.com,reject
-DOMAIN-SUFFIX,is-lq.snssdk.com,reject
-DOMAIN-SUFFIX,mcs.snssdk.com,reject
-
-; ═══ 第 7 层：第三方广告 ═══
-DOMAIN,dig.bdurl.net,reject
-DOMAIN-SUFFIX,awemeughun.com,reject
-DOMAIN,api.iegadp.qq.com,reject   
+HOST-REGEX,^mon[0-9]*-misc\.fqnovel\.com$,reject
+; 小游戏/电商
+DOMAIN-SUFFIX,dailygn.com,reject
+DOMAIN-SUFFIX,hbttl.cn,reject   
