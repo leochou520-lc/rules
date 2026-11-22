@@ -34,7 +34,6 @@ DOMAIN-SUFFIX,pglstatp-toutiao-b.com,REJECT
 DOMAIN-SUFFIX,pangle.cn,REJECT
 
 # 字节广告 API
-DOMAIN-REGEX,^ads[0-9]*-normal.*\.zijieapi\.com$,REJECT
 DOMAIN,ad.zijieapi.com,REJECT
 DOMAIN,ad1.zijieapi.com,REJECT
 DOMAIN,ad2.zijieapi.com,REJECT
