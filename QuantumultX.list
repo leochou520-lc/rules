@@ -1,0 +1,53 @@
+; 红果短剧去广告 · Quantumult X 版 · 2026-11-22
+
+; ═══ 第 0 层：白名单 ═══
+DOMAIN-SUFFIX,qznovelvod.com,direct
+DOMAIN-SUFFIX,fqnovelvod.com,direct
+DOMAIN-REGEX,^api[0-9]*-normal-[a-z]*\.fqnovel\.com$,direct
+DOMAIN-REGEX,^reading[a-z]*-normal-[a-z]*\.fqnovel\.com$,direct
+DOMAIN-SUFFIX,id6.me,direct
+DOMAIN-SUFFIX,qznovelpic.com,direct
+DOMAIN-SUFFIX,fqnovelpic.com,direct
+DOMAIN-SUFFIX,fqnovelstatic.com,direct
+DOMAIN-SUFFIX,qznovelstatic.com,direct
+
+; ═══ 第 1 层：广告运行时 ═══
+DOMAIN-SUFFIX,bytegecko.com,reject
+
+; ═══ 第 2 层：曝光归因 / 跳转 ═══
+DOMAIN-SUFFIX,media-show.wanzi.com,reject
+DOMAIN-SUFFIX,ad.toutiao.com,reject
+DOMAIN-SUFFIX,effect.snssdk.com,reject
+DOMAIN-SUFFIX,ichannel.snssdk.com,reject
+DOMAIN-SUFFIX,zlink.toutiao.com,reject
+DOMAIN-SUFFIX,zlink.ugsdk.cn,reject
+
+; ═══ 第 3 层：穿山甲 SDK ═══
+DOMAIN-KEYWORD,pangolin,reject
+DOMAIN-SUFFIX,pglstatp-toutiao.com,reject
+DOMAIN-SUFFIX,pglstatp-toutiao-b.com,reject
+DOMAIN-SUFFIX,pangle.cn,reject
+
+; ═══ 第 4 层：字节广告 API ═══
+DOMAIN-REGEX,^ads[0-9]*-normal\..*\.zijieapi\.com$,reject
+DOMAIN-REGEX,^polaris[0-9]*-.*\..*\.zijieapi\.com$,reject
+
+; ═══ 第 5 层：广告素材 CDN ═══
+DOMAIN-KEYWORD,-ad-sign.byteimg.com,reject
+DOMAIN-SUFFIX,pstatp.com,reject
+
+; ═══ 第 6 层：埋点 ═══
+DOMAIN-SUFFIX,mon.toutiaocloud.net,reject
+DOMAIN-SUFFIX,mon.toutiaocloud.com,reject
+DOMAIN-SUFFIX,i.snssdk.com,reject
+DOMAIN-SUFFIX,i-lq.snssdk.com,reject
+DOMAIN-SUFFIX,is.snssdk.com,reject
+DOMAIN-SUFFIX,is-lq.snssdk.com,reject
+DOMAIN-SUFFIX,applog.fqnovel.com,reject
+DOMAIN-SUFFIX,log3-applog.fqnovel.com,reject
+DOMAIN-SUFFIX,log5-applog.fqnovel.com,reject
+DOMAIN-REGEX,^mon[0-9]*-misc\.fqnovel\.com$,reject
+
+; ═══ 第 7 层：小游戏 / 电商 ═══
+DOMAIN-SUFFIX,dailygn.com,reject
+DOMAIN-SUFFIX,hbttl.cn,reject   

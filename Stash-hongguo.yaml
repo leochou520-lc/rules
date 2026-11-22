@@ -1,0 +1,57 @@
+name: 红果短剧去广告
+desc: 基于 2026-11 实机抓包 · Stash 版
+category: 去广告
+date: "2026-11-22"
+
+rules:
+  # ═══ 第 0 层：白名单 ═══
+  - DOMAIN-SUFFIX,qznovelvod.com,DIRECT
+  - DOMAIN-SUFFIX,fqnovelvod.com,DIRECT
+  - DOMAIN-REGEX,^api[0-9]*-normal-[a-z]*\.fqnovel\.com$,DIRECT
+  - DOMAIN-REGEX,^reading[a-z]*-normal-[a-z]*\.fqnovel\.com$,DIRECT
+  - DOMAIN-SUFFIX,id6.me,DIRECT
+  - DOMAIN-SUFFIX,qznovelpic.com,DIRECT
+  - DOMAIN-SUFFIX,fqnovelpic.com,DIRECT
+  - DOMAIN-SUFFIX,fqnovelstatic.com,DIRECT
+  - DOMAIN-SUFFIX,qznovelstatic.com,DIRECT
+
+  # ═══ 第 1 层：广告运行时 ═══
+  - DOMAIN-SUFFIX,bytegecko.com,REJECT
+
+  # ═══ 第 2 层：曝光归因 / 跳转 ═══
+  - DOMAIN-SUFFIX,media-show.wanzi.com,REJECT
+  - DOMAIN-SUFFIX,ad.toutiao.com,REJECT
+  - DOMAIN-SUFFIX,effect.snssdk.com,REJECT
+  - DOMAIN-SUFFIX,ichannel.snssdk.com,REJECT
+  - DOMAIN-SUFFIX,zlink.toutiao.com,REJECT
+  - DOMAIN-SUFFIX,zlink.ugsdk.cn,REJECT
+
+  # ═══ 第 3 层：穿山甲 SDK ═══
+  - DOMAIN-KEYWORD,pangolin,REJECT
+  - DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+  - DOMAIN-SUFFIX,pglstatp-toutiao-b.com,REJECT
+  - DOMAIN-SUFFIX,pangle.cn,REJECT
+
+  # ═══ 第 4 层：字节广告 API ═══
+  - DOMAIN-REGEX,^ads[0-9]*-normal\..*\.zijieapi\.com$,REJECT
+  - DOMAIN-REGEX,^polaris[0-9]*-.*\..*\.zijieapi\.com$,REJECT
+
+  # ═══ 第 5 层：广告素材 CDN ═══
+  - DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT
+  - DOMAIN-SUFFIX,pstatp.com,REJECT
+
+  # ═══ 第 6 层：埋点 ═══
+  - DOMAIN-SUFFIX,mon.toutiaocloud.net,REJECT
+  - DOMAIN-SUFFIX,mon.toutiaocloud.com,REJECT
+  - DOMAIN-SUFFIX,i.snssdk.com,REJECT
+  - DOMAIN-SUFFIX,i-lq.snssdk.com,REJECT
+  - DOMAIN-SUFFIX,is.snssdk.com,REJECT
+  - DOMAIN-SUFFIX,is-lq.snssdk.com,REJECT
+  - DOMAIN-SUFFIX,applog.fqnovel.com,REJECT
+  - DOMAIN-SUFFIX,log3-applog.fqnovel.com,REJECT
+  - DOMAIN-SUFFIX,log5-applog.fqnovel.com,REJECT
+  - DOMAIN-REGEX,^mon[0-9]*-misc\.fqnovel\.com$,REJECT
+
+  # ═══ 第 7 层：小游戏 / 电商 ═══
+  - DOMAIN-SUFFIX,dailygn.com,REJECT
+  - DOMAIN-SUFFIX,hbttl.cn,REJECT   
