@@ -21,9 +21,21 @@ DOMAIN-KEYWORD,pangolin,reject
 DOMAIN-SUFFIX,pglstatp-toutiao.com,reject
 DOMAIN-SUFFIX,pglstatp-toutiao-b.com,reject
 DOMAIN-SUFFIX,pangle.cn,reject
-; 字节广告 API
-HOST-REGEX,^ads[0-9]*-normal\..*\.zijieapi\.com$,reject
-HOST-REGEX,^polaris[0-9]*-.*\..*\.zijieapi\.com$,reject
+; 字节广告 API（zijieapi 子域）
+DOMAIN-SUFFIX,ads0-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,ads1-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,ads2-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,ads3-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,ads4-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,ads5-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,ads6-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,ads7-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,ads8-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,ads9-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,polaris0-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,polaris1-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,polaris2-normal.is.snssdk.com,reject
+DOMAIN-SUFFIX,polaris3-normal.is.snssdk.com,reject
 ; 素材 CDN
 DOMAIN-KEYWORD,-ad-sign.byteimg.com,reject
 DOMAIN-SUFFIX,pstatp.com,reject
@@ -37,7 +49,11 @@ DOMAIN-SUFFIX,is-lq.snssdk.com,reject
 DOMAIN-SUFFIX,applog.fqnovel.com,reject
 DOMAIN-SUFFIX,log3-applog.fqnovel.com,reject
 DOMAIN-SUFFIX,log5-applog.fqnovel.com,reject
-HOST-REGEX,^mon[0-9]*-misc\.fqnovel\.com$,reject
+DOMAIN-SUFFIX,mon0-misc.fqnovel.com,reject
+DOMAIN-SUFFIX,mon1-misc.fqnovel.com,reject
+DOMAIN-SUFFIX,mon2-misc.fqnovel.com,reject
+DOMAIN-SUFFIX,mon3-misc.fqnovel.com,reject
+DOMAIN-SUFFIX,mon4-misc.fqnovel.com,reject
 ; 小游戏/电商
 DOMAIN-SUFFIX,dailygn.com,reject
 DOMAIN-SUFFIX,hbttl.cn,reject   
