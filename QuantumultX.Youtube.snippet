@@ -1,0 +1,23 @@
+#!name=YouTube 去广告专用
+#!desc=片头/中插/信息流/Shorts 去广告 + 后台播放 + 隐藏首页 Shorts
+#!author=基于 falconchen/shell 移植
+#!update=2026-11-27
+
+[rewrite_local]
+# player/ad_break：本地直接返回空 Protobuf，不请求服务器
+^https:\/\/(?:youtubei(?:-att)?\.googleapis\.com|(?:www\.|m\.|music\.)?youtube\.com)\/youtubei\/v1\/player\/ad_break(?:\?[^#]*)?$ url script-echo-response https://raw.githubusercontent.com/falconchen/shell/main/quantumultx/YouTube/dist/request.min.js
+
+# 播放请求：清理广告协商字段
+^https:\/\/(?:youtubei(?:-att)?\.googleapis\.com|(?:www\.|m\.|music\.)?youtube\.com)\/youtubei\/v1\/(?:player|get_watch)(?:\?[^#]*)?$ url script-request-body https://raw.githubusercontent.com/falconchen/shell/main/quantumultx/YouTube/dist/request.min.js
+
+# 信息流赞助卡片、播放响应广告位、Shorts 广告；含后台播放与隐藏首页 Shorts
+^https:\/\/(?:youtubei(?:-att)?\.googleapis\.com|(?:www\.|m\.|music\.)?youtube\.com)\/youtubei\/v1\/(?:browse|next|search|player|get_watch|reel\/reel_watch_sequence)(?:\?[^#]*)?$ url script-response-body https://raw.githubusercontent.com/falconchen/shell/main/quantumultx/YouTube/dist/response.min.js
+
+# 初始化空视频：对 YouTube App 的 POST 返回空白视频，其余放行
+^https:\/\/[a-z0-9-]+\.googlevideo\.com\/initplayback(?:\?[^#]*)?$ url script-request-header https://raw.githubusercontent.com/falconchen/shell/main/quantumultx/YouTube/dist/request.min.js
+
+# 备用（一般不用）：若上面 initplayback 不生效，可注释上一行并启用下面这行
+# ^https:\/\/[a-z0-9-]+\.googlevideo\.com\/initplayback(?:\?[^#]*)?$ url reject-200
+
+[mitm]
+hostname = youtubei.googleapis.com, youtubei-att.googleapis.com, youtube.com, www.youtube.com, m.youtube.com, music.youtube.com, *.googlevideo.com
